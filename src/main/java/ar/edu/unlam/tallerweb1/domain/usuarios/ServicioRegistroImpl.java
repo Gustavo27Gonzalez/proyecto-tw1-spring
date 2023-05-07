@@ -17,11 +17,11 @@ import java.util.*;
 @Transactional
 public class ServicioRegistroImpl implements ServicioRegistro {
 	
-	private RepositorioUsuario servicioRegistrarDao;
+	private RepositorioUsuario repositorioUsuario;
 	
 	@Autowired
-	public ServicioRegistroImpl(RepositorioUsuario servicioRegistrarDao){
-		this.servicioRegistrarDao = servicioRegistrarDao;
+	public ServicioRegistroImpl(RepositorioUsuario repositorioUsuario){
+		this.repositorioUsuario = repositorioUsuario;
 	}
 	
 	@Override
@@ -35,7 +35,7 @@ public class ServicioRegistroImpl implements ServicioRegistro {
 	@Override
 	public Usuario registrarUsuario(DatosRegistro datosRegistro) {
 		Usuario nuevoUsuario = new Usuario(datosRegistro);
-		servicioRegistrarDao.guardar(nuevoUsuario);
+		repositorioUsuario.guardar(nuevoUsuario);
 		return nuevoUsuario;
 	}
 
@@ -54,7 +54,7 @@ public class ServicioRegistroImpl implements ServicioRegistro {
 
 	@Override
 	public Usuario buscarUsuario(DatosRegistro datosRegistro) {
-		return servicioRegistrarDao.buscar(datosRegistro.getEmail());
+		return repositorioUsuario.buscar(datosRegistro.getEmail());
 	}
 
 }

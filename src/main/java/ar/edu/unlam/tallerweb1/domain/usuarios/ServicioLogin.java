@@ -6,5 +6,7 @@ import ar.edu.unlam.tallerweb1.domain.usuarios.Usuario;
 // Interface que define los metodos del Servicio de Usuarios.
 public interface ServicioLogin {
 
-	Usuario consultarUsuario(DatosLogin datosLogin);
+	Boolean consultarUsuario(DatosLogin datosLogin);
+	Boolean emailValido(DatosLogin datosLogin);
+	Boolean passwordValida(DatosLogin datosLogin);
 }

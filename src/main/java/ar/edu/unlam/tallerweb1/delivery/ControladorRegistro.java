@@ -19,7 +19,6 @@ public class ControladorRegistro {
 	
 	@Autowired
 	public ControladorRegistro(ServicioRegistro servicioRegistro) {
-		
 		this.servicioRegistro = servicioRegistro;
 	}
 	
