@@ -19,4 +19,18 @@ public class DatosLogin {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    public DatosLogin() {
+	}
+
+	public DatosLogin(String email, String password) {
+		setEmail(email);
+		setPassword(password);
+	}
+
+	public DatosLogin(String email) {
+		setEmail(email);
+	}
+    
+    
 }

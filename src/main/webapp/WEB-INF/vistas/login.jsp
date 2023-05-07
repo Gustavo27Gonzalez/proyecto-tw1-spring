@@ -19,12 +19,14 @@
 					<hr class="colorgraph"><br>
 
 					<%--Elementos de entrada de datos, el elemento path debe indicar en que atributo del objeto usuario se guardan los datos ingresados--%>
+					<label>Email</label>
 					<form:input path="email" id="email" type="email" class="form-control" />
+					<label>Password</label>
 					<form:input path="password" type="password" id="password" class="form-control"/>     		  
 					
 					<button class="btn btn-lg btn-primary btn-block" Type="Submit"/>Login</button>
 				</form:form>
-				<a href="registrar-usuario"	>Registrarme</a>
+				<a href="registrarme"	>Registrarme</a>
 				<%--Bloque que es visible si el elemento error no esta vacio	--%>
 				<c:if test="${not empty error}">
 			        <h4><span>${error}</span></h4>

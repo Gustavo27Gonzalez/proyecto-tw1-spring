@@ -1,7 +1,12 @@
 package ar.edu.unlam.tallerweb1.infrastructure;
 
+import ar.edu.unlam.tallerweb1.delivery.DatosLogin;
+import ar.edu.unlam.tallerweb1.delivery.DatosRegistro;
 import ar.edu.unlam.tallerweb1.domain.usuarios.RepositorioUsuario;
 import ar.edu.unlam.tallerweb1.domain.usuarios.Usuario;
+
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -24,15 +29,15 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
 	}
 
 	@Override
-	public Usuario buscarUsuario(String email, String password) {
+	public Usuario buscarUsuario(DatosLogin datosLogin) {
 
 		// Se obtiene la sesion asociada a la transaccion iniciada en el servicio que invoca a este metodo y se crea un criterio
 		// de busqueda de Usuario donde el email y password sean iguales a los del objeto recibido como parametro
 		// uniqueResult da error si se encuentran mas de un resultado en la busqueda.
 		final Session session = sessionFactory.getCurrentSession();
 		return (Usuario) session.createCriteria(Usuario.class)
-				.add(Restrictions.eq("email", email))
-				.add(Restrictions.eq("password", password))
+				.add(Restrictions.eq("email", datosLogin.getEmail()))
+				.add(Restrictions.eq("password", datosLogin.getPassword()))
 				.uniqueResult();
 	}
 
@@ -51,6 +56,16 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
 	@Override
 	public void modificar(Usuario usuario) {
 		sessionFactory.getCurrentSession().update(usuario);
+	}
+
+	@Override
+	public Usuario buscarPorId(Long id) {
+		return sessionFactory.getCurrentSession().get(Usuario.class, id);
+	}
+
+	@Override
+	public List<Usuario> buscarUsuarios() {
+		return (List<Usuario>)sessionFactory.getCurrentSession().createCriteria(Usuario.class).list();
 	}
 
 }

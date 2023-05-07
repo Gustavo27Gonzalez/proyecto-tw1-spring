@@ -1,22 +1,19 @@
 /*
-CREATE DATABASE IF NOT EXISTS tw1dbprod;
-USE tw1dbprod;
--- DROP DATABASE tw1dbprod;
+CREATE SCHEMA IF NOT EXISTS codermix;
+USE codermix;
+-- DROP DATABASE codermix;
 
 CREATE TABLE usuarios(
 id_usuario INT PRIMARY KEY AUTO_INCREMENT,
 email VARCHAR(50),
-pass VARCHAR(30),
-rol VARCHAR(50),
+password VARCHAR(30),
+nombre VARCHAR(50),
+apellido VARCHAR(50),
 activo boolean);
-
-USE tw1dbprod;
 
 select * from usuarios;
 
-INSERT INTO usuarios(email, pass) VALUES
-("usuario1@prueba.com", "usuario1"),
-("usuario2@prueba.com", "usuario2"),
-("usuario3@prueba.com", "usuario3");
+INSERT INTO usuarios(email, password, nombre, apellido, activo) VALUES
+("usuario1@prueba.com", "!Usuario1234", "Test", "Usuario", true);
 
 */

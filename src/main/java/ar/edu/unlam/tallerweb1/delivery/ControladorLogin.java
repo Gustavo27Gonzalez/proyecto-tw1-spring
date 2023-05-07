@@ -50,10 +50,15 @@ public class ControladorLogin {
 
 		// invoca el metodo consultarUsuario del servicio y hace un redirect a la URL /home, esto es, en lugar de enviar a una vista
 		// hace una llamada a otro action a traves de la URL correspondiente a esta
-		Usuario usuarioBuscado = servicioLogin.consultarUsuario(datosLogin.getEmail(), datosLogin.getPassword());
+		Usuario usuarioBuscado = servicioLogin.consultarUsuario(datosLogin);
+		
+		if(datosLogin.getEmail() == "" || datosLogin.getPassword() == "") {
+			model.put("error", "No se ingresaron datos para realizar login");
+			return new ModelAndView("redirect:/login");
+		}
+		
 		if (usuarioBuscado != null) {
-			//request.getSession().setAttribute("ROL", usuarioBuscado.getRol());
-			return new ModelAndView("redirect:/home");
+			return new ModelAndView("redirect:/saludo");
 		} else {
 			// si el usuario no existe agrega un mensaje de error en el modelo.
 			model.put("error", "Usuario o clave incorrecta");
@@ -71,5 +76,12 @@ public class ControladorLogin {
 	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public ModelAndView inicio() {
 		return new ModelAndView("redirect:/login");
+	}
+	
+	@RequestMapping(path = "/saludo", method = RequestMethod.GET)
+	public ModelAndView saludo() {
+		ModelMap modelo = new ModelMap();
+		modelo.put("datosLogin", new DatosLogin());
+		return new ModelAndView("saludo", modelo);
 	}
 }
