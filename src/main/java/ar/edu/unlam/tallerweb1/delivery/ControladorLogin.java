@@ -50,19 +50,22 @@ public class ControladorLogin {
 
 		// invoca el metodo consultarUsuario del servicio y hace un redirect a la URL /home, esto es, en lugar de enviar a una vista
 		// hace una llamada a otro action a traves de la URL correspondiente a esta
-		Usuario usuarioBuscado = servicioLogin.consultarUsuario(datosLogin);
+		Boolean usuarioBuscado = servicioLogin.consultarUsuario(datosLogin);
+		Boolean emailValido = servicioLogin.emailValido(datosLogin);
+		Boolean passwordValida = servicioLogin.passwordValida(datosLogin);
 		
-		if(datosLogin.getEmail() == "" || datosLogin.getPassword() == "") {
-			model.put("error", "No se ingresaron datos para realizar login");
-			return new ModelAndView("redirect:/login");
-		}
-		
-		if (usuarioBuscado != null) {
+		if(usuarioBuscado == null || datosLogin.getEmail() == "" || datosLogin.getPassword() == "") {
+			model.put("error", "Ingrese datos para loguearse");
+		}else if(usuarioBuscado == true){
 			return new ModelAndView("redirect:/saludo");
-		} else {
-			// si el usuario no existe agrega un mensaje de error en el modelo.
-			model.put("error", "Usuario o clave incorrecta");
+		}else if(!emailValido) {
+			model.put("error", "Formato de Email Inválido");
+		}else if(!passwordValida) {
+			model.put("error", "Formato de Clave Inválida");
+		}else {
+			model.put("error", "Email o Password Incorrecta");
 		}
+		
 		return new ModelAndView("login", model);
 	}
 

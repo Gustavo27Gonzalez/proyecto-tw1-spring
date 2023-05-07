@@ -59,16 +59,13 @@ public class ControladorRegistroTest {
 	
 	private void dadoQueNoExisteElUsuario(DatosRegistro datosRegistro) {
 		when(servicioRegistro.emailValido(datosRegistro)).thenReturn(true);
-		//when(servicioRegistro.registrarUsuario(datosRegistro)).thenReturn(true);
 	}
 	
 	private ModelAndView cuandoMeRegistro(DatosRegistro datosRegistro) {
-		// TODO Auto-generated method stub
 		return controladorRegistro.registrarUsuario(datosRegistro);
 	}
 	
 	private void entoncesElRegistroEsExitoso(ModelAndView mav) {
-		// TODO Auto-generated method stub
 		assertThat(mav.getViewName()).isEqualTo("login");
 		assertThat(mav.getModel().get("msg")).isEqualTo("Registro Exitoso");
 	}
@@ -86,7 +83,6 @@ public class ControladorRegistroTest {
 
 	private void dadoQueElEmailEsInvalido(DatosRegistro datosRegistroEmailInvalido) {
 		when(servicioRegistro.emailValido(datosRegistroEmailInvalido)).thenReturn(false);
-		//when(servicioRegistro.registrarUsuario(datosRegistroEmailInvalido)).thenReturn(false);		
 	}
 
 	private void entoncesElRegistroFalla(ModelAndView mav) {
@@ -107,7 +103,6 @@ public class ControladorRegistroTest {
 	
 	private void dadoQueLaPasswordEsInvalida(DatosRegistro datosRegistroPasswordInvalida) {
 		when(servicioRegistro.passwordValida(datosRegistroPasswordInvalida)).thenReturn(false);
-		//when(servicioRegistro.registrarUsuario(datosRegistroPasswordInvalida)).thenReturn(false);
 	}
 	
 	@Test
@@ -123,7 +118,6 @@ public class ControladorRegistroTest {
 	private void dadoQueExisteElUsuario(DatosRegistro datosRegistro2) {
 		when(servicioRegistro.emailValido(datosRegistro)).thenReturn(true);
 		when(servicioRegistro.buscarEmailRegistrado(datosRegistro)).thenReturn(true);
-		//when(servicioRegistro.registrarUsuario(datosRegistro)).thenReturn(false);
 	}
 
 	@Test
