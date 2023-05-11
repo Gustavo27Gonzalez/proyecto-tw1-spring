@@ -18,3 +18,11 @@ hs_err_pid*
 *.DS_Store
 /.java-version
 /bin/
+
+
+# archivos CoderMix (configuracion Base de datos)
+
+/.project
+/.settings/org.eclipse.jdt.core.prefs
+/src/main/resources/hibernateContext.xml
+/.settings/org.eclipse.m2e.core.prefs
