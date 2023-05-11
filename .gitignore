@@ -22,7 +22,7 @@ hs_err_pid*
 
 # archivos CoderMix (configuracion Base de datos)
 
-/.project
-/.settings/org.eclipse.jdt.core.prefs
-/src/main/resources/hibernateContext.xml
+/.project/
+/.settings/org.eclipse.jdt.core.prefs/
+/src/main/resources/hibernateContext.xml/
 /.settings/org.eclipse.m2e.core.prefs
