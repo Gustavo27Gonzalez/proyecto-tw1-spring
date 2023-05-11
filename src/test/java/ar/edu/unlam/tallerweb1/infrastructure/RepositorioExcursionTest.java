@@ -55,6 +55,7 @@ public class RepositorioExcursionTest {
 			excursion.setCupo(i);
 			excursion.setDescripcion(String.valueOf(i));
 			excursiones.add(excursion);
+			repositorioExcursion.guardar(excursion);
 		}
 		return excursiones;
 	}

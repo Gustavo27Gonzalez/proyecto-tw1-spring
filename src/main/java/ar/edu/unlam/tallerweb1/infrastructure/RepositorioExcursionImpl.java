@@ -24,5 +24,10 @@ public class RepositorioExcursionImpl implements RepositorioExcursion{
 	public List<Excursiones> listarExcursiones() {
 		return (List<Excursiones>)sessionFactory.getCurrentSession().createCriteria(Excursiones.class).list();
 	}
+
+	@Override
+	public void guardar(Excursiones excursion) {
+		sessionFactory.getCurrentSession().save(excursion);
+	}
 	
 }
