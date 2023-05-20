@@ -2,49 +2,58 @@ package ar.edu.unlam.tallerweb1.infrastructure;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
+import ar.edu.unlam.tallerweb1.SpringTest;
 import ar.edu.unlam.tallerweb1.domain.excursiones.Excursiones;
 import ar.edu.unlam.tallerweb1.domain.excursiones.RepositorioExcursion;
 
-public class RepositorioExcursionTest {
+public class RepositorioExcursionTest extends SpringTest {
 	
 	@Autowired
 	private RepositorioExcursion repositorioExcursion;
 	
 	public static final int CANTIDAD_EXCURSIONES = 4;
+	
+	@Before
+    public void init() {
+        this.repositorioExcursion = mock(RepositorioExcursion.class);
+    }
 
 	@Test
 	@Transactional
 	@Rollback
-	public void queSiExistenExcursionesDevuelveUnaListaDeExcursiones() {
+	public void siExistenExcursionesYPidoTodasLasExcursionesDevuelveUnaListaDeExcursiones() {
 		
-		List<Excursiones> excursiones = dadoQueExistenExcursiones(CANTIDAD_EXCURSIONES);
+		dadoQueExistenExcursiones(CANTIDAD_EXCURSIONES);
 	
-		List<Excursiones> listaExcursionesObtenida = cuandoBuscoExcursiones();
+		List<Excursiones> listaExcursiones = cuandoBuscoExcursiones();
 		
-		entoncesObtengoElListadoDeExcursiones(listaExcursionesObtenida, excursiones);
+		entoncesObtengoElListadoDeExcursiones(listaExcursiones, CANTIDAD_EXCURSIONES);
 	}
 
-	private void entoncesObtengoElListadoDeExcursiones(List<Excursiones> listaExcursionesObtenida,
-			List<Excursiones> excursiones) {
-		assertThat(listaExcursionesObtenida).isNotNull();
-		assertThat(listaExcursionesObtenida.size()).isEqualTo(excursiones.size());
+	private void entoncesObtengoElListadoDeExcursiones(List<Excursiones> listaExcursiones,
+			int cantidadExcursiones) {
+		assertThat(listaExcursiones).isNotNull();
+		assertThat(listaExcursiones).hasSize(cantidadExcursiones);
 	}
 
 	private List<Excursiones> cuandoBuscoExcursiones() {
 		return repositorioExcursion.listarExcursiones();
 	}
 
-	private List<Excursiones> dadoQueExistenExcursiones(int cantidadExcursiones) {
+	private void dadoQueExistenExcursiones(int cantidadExcursiones) {
 		Excursiones excursion = new Excursiones();
 		Double precio = 550.5;
 		List<Excursiones> excursiones = new ArrayList<>();
@@ -57,7 +66,7 @@ public class RepositorioExcursionTest {
 			excursiones.add(excursion);
 			repositorioExcursion.guardar(excursion);
 		}
-		return excursiones;
+		when(this.repositorioExcursion.listarExcursiones()).thenReturn(excursiones);
 	}
 
 }

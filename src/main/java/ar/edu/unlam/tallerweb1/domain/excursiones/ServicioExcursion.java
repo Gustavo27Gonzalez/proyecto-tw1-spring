@@ -2,9 +2,11 @@ package ar.edu.unlam.tallerweb1.domain.excursiones;
 
 import java.util.List;
 
+
 public interface ServicioExcursion {
 
 	List <Excursiones> listarExcursiones();
+	void guardar(Excursiones excursion);
 	
 	// Interface que define los metodos del Servicio de Usuarios.
 	

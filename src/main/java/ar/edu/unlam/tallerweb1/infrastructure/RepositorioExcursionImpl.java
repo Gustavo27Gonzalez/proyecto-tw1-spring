@@ -10,7 +10,7 @@ import ar.edu.unlam.tallerweb1.domain.excursiones.Excursiones;
 import ar.edu.unlam.tallerweb1.domain.excursiones.RepositorioExcursion;
 import ar.edu.unlam.tallerweb1.domain.usuarios.Usuario;
 
-@Repository("repositorioUsuario")
+@Repository("repositorioExcursion")
 public class RepositorioExcursionImpl implements RepositorioExcursion{
 
 	private SessionFactory sessionFactory;
