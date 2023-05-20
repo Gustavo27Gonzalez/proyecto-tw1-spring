@@ -48,7 +48,7 @@ public class ControladorLoginTest {
 	}
 
 	private void entoncesElLoginEsExitoso(ModelAndView mav) {
-		assertThat(mav.getViewName()).isEqualTo("redirect:/saludo");
+		assertThat(mav.getViewName()).isEqualTo("redirect:/inicio");
 	}
 
 	private ModelAndView cuandoMeLogueo(DatosLogin datosLogin) {

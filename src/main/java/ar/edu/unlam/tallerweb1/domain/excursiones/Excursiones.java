@@ -18,7 +18,7 @@ public class Excursiones {
 	@Column(name = "id_excursion")
 	private Long id;
 	private String nombre;
-	private  Date fecha;
+	private Date fecha;
 	private Double precio;
 	private Integer cupo;
 	private String descripcion;
