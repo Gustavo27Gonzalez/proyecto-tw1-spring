@@ -6,4 +6,6 @@ public interface RepositorioExcursion {
 
 	List<Excursiones> listarExcursiones();
 
+	void guardar(Excursiones excursion);
+
 }
