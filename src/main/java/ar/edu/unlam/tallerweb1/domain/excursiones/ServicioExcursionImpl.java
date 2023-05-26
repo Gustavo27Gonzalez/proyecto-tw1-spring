@@ -29,4 +29,9 @@ public class ServicioExcursionImpl implements ServicioExcursion {
 		this.repositorioExcursion.guardar(excursion);		
 	}
 
+	@Override
+	public Boolean tieneCupo(Long idExcursion) {
+		return this.repositorioExcursion.tieneCupo(idExcursion);
+	}
+
 }

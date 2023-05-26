@@ -8,4 +8,6 @@ public interface RepositorioExcursion {
 
 	void guardar(Excursiones excursion);
 
+	Boolean tieneCupo(Long idExcursion);
+
 }

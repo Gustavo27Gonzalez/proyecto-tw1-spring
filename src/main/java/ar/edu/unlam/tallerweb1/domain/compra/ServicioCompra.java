@@ -6,6 +6,6 @@ public interface ServicioCompra {
 
 	Boolean tieneCupo(Long idExcursion);
 
-	void comprar(DatosCompra datosCompra);
+	Compra comprar(DatosCompra datosCompra);
 
 }
