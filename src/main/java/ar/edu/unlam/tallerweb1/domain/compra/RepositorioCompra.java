@@ -4,4 +4,6 @@ public interface RepositorioCompra {
 
 	void guardar(Compra nuevaCompra);
 
+	Compra buscarPorId(Long idCompra);
+
 }

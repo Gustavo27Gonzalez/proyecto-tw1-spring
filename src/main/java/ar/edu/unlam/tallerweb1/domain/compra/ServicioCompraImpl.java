@@ -12,12 +12,11 @@ import ar.edu.unlam.tallerweb1.domain.excursiones.RepositorioExcursion;
 @Transactional
 public class ServicioCompraImpl implements ServicioCompra {
 
-	@Autowired
 	private RepositorioCompra repositorioCompra;
 	
-	@Autowired
 	private RepositorioExcursion repositorioExcursion;
 	
+	@Autowired
 	public ServicioCompraImpl(RepositorioCompra repositorioCompra, RepositorioExcursion repositorioExcursion) {
 		this.repositorioCompra = repositorioCompra;
 		this.repositorioExcursion = repositorioExcursion;
