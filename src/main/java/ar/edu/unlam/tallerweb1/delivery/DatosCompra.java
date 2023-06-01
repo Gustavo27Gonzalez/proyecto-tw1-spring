@@ -2,6 +2,9 @@ package ar.edu.unlam.tallerweb1.delivery;
 
 import java.util.Date;
 
+import ar.edu.unlam.tallerweb1.domain.excursiones.Excursiones;
+import ar.edu.unlam.tallerweb1.domain.usuarios.Usuario;
+
 public class DatosCompra {
 	
 	private Long idExcursion;
@@ -65,6 +68,12 @@ public class DatosCompra {
 		setIdExcursion(idExcursion);
 		setPrecio(precio);
 		setIdUsuario(idUsuario);
+	}
+
+	public DatosCompra(Excursiones e, Usuario u) {
+		setIdExcursion(e.getId());
+		setPrecio(e.getPrecio());
+		setIdUsuario(u.getId());
 	}
 
 }

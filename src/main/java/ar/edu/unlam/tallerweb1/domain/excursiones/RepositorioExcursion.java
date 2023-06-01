@@ -2,12 +2,19 @@ package ar.edu.unlam.tallerweb1.domain.excursiones;
 
 import java.util.List;
 
+import ar.edu.unlam.tallerweb1.domain.compra.Compra;
+
 public interface RepositorioExcursion {
 
 	List<Excursiones> listarExcursiones();
 
 	void guardar(Excursiones excursion);
 
-	Boolean tieneCupo(Long idExcursion);
+	Excursiones tieneCupo(Long idExcursion);
+
+	Compra comprar(Compra compra);
+
+	void comprar(Excursiones excursion);
+
 
 }

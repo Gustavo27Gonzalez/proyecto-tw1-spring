@@ -24,7 +24,8 @@ public class ServicioCompraImpl implements ServicioCompra {
 
 	@Override
 	public Boolean tieneCupo(Long idExcursion) {
-		return repositorioExcursion.tieneCupo(idExcursion);
+		return true;
+		//return (repositorioExcursion.tieneCupo(idExcursion) != null) ? true : false;
 	}
 
 	@Override

@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import ar.edu.unlam.tallerweb1.delivery.DatosCompra;
+import ar.edu.unlam.tallerweb1.domain.excursiones.Excursiones;
+import ar.edu.unlam.tallerweb1.domain.usuarios.Usuario;
 
 @Entity (name="compras")
 public class Compra {
@@ -79,6 +81,11 @@ public class Compra {
 		setIdUsuario(datosCompra.getIdUsuario());
 		setIdExcursion(datosCompra.getIdExcursion());
 	}
+
+	public Compra(Excursiones e, Usuario u) {
+		setIdUsuario(u.getId());
+		setIdExcursion(e.getId());	
+		}
 	
 
 }
