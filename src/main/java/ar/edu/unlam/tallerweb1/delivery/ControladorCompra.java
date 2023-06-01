@@ -21,7 +21,7 @@ public class ControladorCompra {
 		this.servicioCompra = servicioCompra;
 	}
 
-	@RequestMapping(path = "/comprar", method = RequestMethod.GET)
+	@RequestMapping(path = "/comprar"/*, method = RequestMethod.GET*/)
 	public ModelAndView comprar() {
 		ModelMap model = new ModelMap();
 		model.put("datosCompra", new DatosCompra());
