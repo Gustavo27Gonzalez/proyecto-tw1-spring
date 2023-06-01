@@ -36,7 +36,7 @@
 	<div class="d-flex justify-content-center align-items-center" style="margin-top: 5rem;">
 
 		<div class="col-sm-4 mb-4 align-self-stretch">
-			<a href="listado-excursiones" role="button">
+			<a href="listar-excursiones" role="button">
 				<div class="card-counter primary">
 					<i class="fa fa-users"></i>
 					<span class="count-numbers">Listar Excursiones</span>

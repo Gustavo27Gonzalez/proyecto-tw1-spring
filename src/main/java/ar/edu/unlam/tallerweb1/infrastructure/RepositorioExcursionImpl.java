@@ -51,5 +51,10 @@ public class RepositorioExcursionImpl implements RepositorioExcursion{
 	public Compra comprar(Compra compra) {
 		return (Compra)this.sessionFactory.getCurrentSession().save(compra);
 	}
+
+	@Override
+	public Excursiones buscarPorId(long id) {
+		return sessionFactory.getCurrentSession().get(Excursiones.class, id);
+	}
 	
 }

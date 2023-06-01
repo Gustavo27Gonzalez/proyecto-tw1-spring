@@ -16,5 +16,7 @@ public interface RepositorioExcursion {
 
 	void comprar(Excursiones excursion);
 
+	Excursiones buscarPorId(long id);
+
 
 }

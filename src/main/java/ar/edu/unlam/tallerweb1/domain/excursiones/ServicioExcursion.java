@@ -12,6 +12,7 @@ public interface ServicioExcursion {
 	Boolean tieneCupo (Long idExcursion);
 	// Interface que define los metodos del Servicio de Usuarios.
 	Compra comprar(Compra compra);
+	Excursiones getExcursion(long id);
 	
 	//tipo dato -- nombre funcion y que reciben  (Inteligencia capa de negocio, declaramos las funciones)
 	

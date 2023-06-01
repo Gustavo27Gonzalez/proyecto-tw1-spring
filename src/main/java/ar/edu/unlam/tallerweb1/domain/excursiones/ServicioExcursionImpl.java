@@ -40,4 +40,9 @@ public class ServicioExcursionImpl implements ServicioExcursion {
 		return this.repositorioExcursion.comprar(compra);
 	}
 
+	@Override
+	public Excursiones getExcursion(long id) {
+		return this.repositorioExcursion.buscarPorId(id);
+	}
+
 }
