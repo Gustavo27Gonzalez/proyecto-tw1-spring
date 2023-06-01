@@ -50,8 +50,16 @@
 							<p class="card-text text-dark" style="color: #FFFFFF">Cupo: $${EXCURSION.cupo}</p>
 							<p class="card-text text-dark" style="color: #FFFFFF">Fecha: $${EXCURSION.fecha}</p>
 							<div class="d-flex justify-content-end">
+								<!-- 
 								<a class="btn btn-outline-info"
-								   href="seleccionar-excursion?id=${EXCURSION.id}" role="button">Comprar</a>
+								   href="seleccionar-excursion?id=${EXCURSION.id}" role="button">Comprar</a> 
+								   -->
+								   <a class="btn btn-outline-info"
+								   href="seleccionar-excursion/id=${EXCURSION.id}" role="button">Comprar</a>
+								   <!--
+								   <a class="btn btn-outline-info"
+								   href="comprar-excursion" role="button">Comprar</a>
+								-->
 							</div>
 						</div>
 					</div>

@@ -39,8 +39,9 @@ public class ControladorExcursion {
 		return mav;
 	}
 	
-	@RequestMapping(path="/seleccionar-excursion", method = RequestMethod.GET)
-	public ModelAndView seleccionarExcursion(@RequestParam("id") long id) {
+	@RequestMapping(path="seleccionar-excursion/{id}", method = RequestMethod.GET)
+	public ModelAndView seleccionarExcursion(@RequestParam(name = "id") long id) {
+		id = 1L;
 		this.sessionService.setExcursionActual(this.servicioExcursion.getExcursion(id));
 		ModelMap model = new ModelMap();
 		model.put("excursion", this.servicioExcursion.getExcursion(id));
