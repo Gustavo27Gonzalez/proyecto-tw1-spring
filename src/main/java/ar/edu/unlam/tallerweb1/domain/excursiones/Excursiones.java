@@ -22,6 +22,7 @@ public class Excursiones {
 	private Double precio;
 	private Integer cupo;
 	private String descripcion;
+	private Boolean disponible;
 	
 	public Excursiones() {}
 	 
@@ -31,6 +32,7 @@ public class Excursiones {
 		setPrecio(precio);
 		setCupo(cupo);
 		setDescripcion(descripcion);
+		setDisponible(true);
 	}
 	 
 	public Long getId() {
@@ -80,5 +82,15 @@ public class Excursiones {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+	public Boolean getDisponible() {
+		return disponible;
+	}
+
+	public void setDisponible(Boolean disponible) {
+		this.disponible = disponible;
+	}
+	
+	
 	 
-	 }
+}

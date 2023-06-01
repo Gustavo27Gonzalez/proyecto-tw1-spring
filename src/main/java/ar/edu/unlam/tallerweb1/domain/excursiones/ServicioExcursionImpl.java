@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import ar.edu.unlam.tallerweb1.domain.compra.Compra;
 import ar.edu.unlam.tallerweb1.domain.usuarios.RepositorioUsuario;
 
 @Service("servicioExcursion")
@@ -27,6 +28,21 @@ public class ServicioExcursionImpl implements ServicioExcursion {
 	@Override
 	public void guardar(Excursiones excursion) {
 		this.repositorioExcursion.guardar(excursion);		
+	}
+
+	@Override
+	public Boolean tieneCupo(Long idExcursion) {
+		return (repositorioExcursion.tieneCupo(idExcursion) == null) ? true : false;
+	}
+
+	@Override
+	public Compra comprar(Compra compra) {
+		return this.repositorioExcursion.comprar(compra);
+	}
+
+	@Override
+	public Excursiones getExcursion(long id) {
+		return this.repositorioExcursion.buscarPorId(id);
 	}
 
 }
