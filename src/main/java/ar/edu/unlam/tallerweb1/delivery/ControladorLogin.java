@@ -57,7 +57,7 @@ public class ControladorLogin {
 		if(usuarioBuscado == null || datosLogin.getEmail() == "" || datosLogin.getPassword() == "") {
 			model.put("error", "Ingrese datos para loguearse");
 		}else if(usuarioBuscado == true){
-			return new ModelAndView("redirect:/saludo");
+			return new ModelAndView("redirect:/inicio");
 		}else if(!emailValido) {
 			model.put("error", "Formato de Email Inválido");
 		}else if(!passwordValida) {
@@ -86,5 +86,10 @@ public class ControladorLogin {
 		ModelMap modelo = new ModelMap();
 		modelo.put("datosLogin", new DatosLogin());
 		return new ModelAndView("saludo", modelo);
+	}
+	
+	@RequestMapping(path = "/inicio", method = RequestMethod.GET)
+	public ModelAndView usuarioInicio() {
+		return new ModelAndView("usuarioInicio");
 	}
 }
