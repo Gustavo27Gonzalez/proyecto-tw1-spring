@@ -44,7 +44,7 @@ public class ControladorExcursion {
 		this.sessionService.setExcursionActual(this.servicioExcursion.getExcursion(id));
 		ModelMap model = new ModelMap();
 		model.put("excursion", this.servicioExcursion.getExcursion(id));
-		ModelAndView mav = new ModelAndView("comprar", model);
+		ModelAndView mav = new ModelAndView("compra-excursion", model);
 		return mav;
 	}
 
